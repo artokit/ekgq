@@ -6,29 +6,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="mainMenu">
-	<div class="mainMenuWrapper">
-		
-		<div class='nav'>
-			<a href="/site_reports">
-				<button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="Сайт">Сайт</span><span class="cybr-btn__glitch"></span></button>
-			</a>
-			<!-- <a href="#"> -->
-				<!-- <button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="ТГ">ТГ</span><span class="cybr-btn__glitch"></span></button> -->
-			<!-- </a> -->
-		</div>
-		
-		<div class="menuContent">
-			<div class="ReportForm siteReportForm paralaxElem">
-				<form class="ReportFormPost" action="." method="post">
-					{% csrf_token %}
-					{% for i in form %}
-					{{ i }}
-					{% endfor %}
-					<button class="startSiteReport" type="submit">Начать</button>
-				</form>
-			</div>
-		</div>
-	</div>
+
+<div class="ReportForm siteReportForm paralaxElem">
+	<form class="ReportFormPost" action="." method="post">
+		{% csrf_token %}
+		{% for i in form %}
+		{{ i }}
+		{% endfor %}
+		<button class="startSiteReport" type="submit">Начать</button>
+	</form>
 </div>
+
 {% endblock %}

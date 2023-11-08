@@ -11,3 +11,7 @@ class ReportSiteForm(forms.ModelForm):
             'url_report': forms.TextInput(attrs={'placeholder': "Кого репортим"}),
             'count_threads': forms.TextInput(attrs={'placeholder': "Количество потоков"})
         }
+
+
+class TextAddForm(forms.Form):
+    new_text = forms.CharField(widget=forms.Textarea(attrs={'id': 'newText'}))

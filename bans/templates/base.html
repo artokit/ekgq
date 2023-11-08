@@ -10,7 +10,24 @@
 </head>
 <body>
 
-{% block content %}{% endblock %}
+<div class="mainMenu">
+    <div class="mainMenuWrapper">
+
+        <div class='nav'>
+            <a href="/site_reports">
+                <button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="Сайт">Сайт</span><span class="cybr-btn__glitch"></span></button>
+            </a>
+            <a href="/site_reports/texts">
+                <button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="Текст">Текст</span><span class="cybr-btn__glitch"></span></button>
+            </a>
+        </div>
+
+        <div class="menuContent">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+</div>
+
 <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

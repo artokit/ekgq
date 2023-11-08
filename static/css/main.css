@@ -490,3 +490,70 @@ body {
 .notCenterTd p {
     text-align: left;
 }
+
+.nav button {
+    cursor: pointer;
+}
+
+.currentText {
+    font-family: "Roboto", sans-serif;
+    height: 600px;
+    width: 1200px;
+    color: white;
+    background: rgba(51, 51, 51, 0.6);
+    overflow-y: scroll;
+    font-size: 18pt;
+    padding: 10px
+}
+
+.currentText::-webkit-scrollbar {
+    width: 0;
+}
+
+.currentText div {
+    margin-bottom: 15px;
+}
+
+.defaultButton {
+    color: white;
+    text-decoration: none;
+    font-size: 16pt;
+    font-family: "Roboto", sans-serif;
+    padding: 15px 10px;
+    background: #3182ff;
+    border-radius: 20px;
+    transition: .3s;
+    border: none;
+    outline: none;
+}
+
+.defaultButton:hover {
+    transition: .3s;
+    background: #1e5ab9;
+}
+
+.buttonWrapper {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.CurrentTextWrapper h2, h3 {
+    font-size: 24pt;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+#labelNewText span {
+    display: block;
+    color: white;
+    font-size: 18pt;
+    margin-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+#newText {
+    width: 600px;
+    height: 250px;
+}

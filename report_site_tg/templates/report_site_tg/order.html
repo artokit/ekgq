@@ -6,40 +6,23 @@
 {% endblock %}
 
 {% block content %}
-<div class="mainMenu">
-	<div class="mainMenuWrapper">
-
-		<div class='nav'>
-			<a href="#">
-				<button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="Сайт">Сайт</span><span class="cybr-btn__glitch"></span></button>
-			</a>
-			<a href="#">
-				<button class="cybr-btn paralaxElem" style="--primary-hue: 274; --primary-shadow-hue: 180; --secondary-shadow-hue: 60;"><span class="cybr-btn__text" data-text="ТГ">ТГ</span><span class="cybr-btn__glitch"></span></button>
-			</a>
-		</div>
-
-		<div class="menuContent">
-			<div class="TableViewReports">
-				<table>
-					<tr>
-						<td style="border: 3px solid #3182ff;">Номер телефона</td>
-						<td style="border: 3px solid #3182ff;">Устройство</td>
-						<td style="border: 3px solid #3182ff;">Почта</td>
-						<td style="border: 3px solid #3182ff;">Текст</td>
-					</tr>
-					{% for report in order.reports.all %}
-						<tr>
-							<td>{{ report.phone_number }}</td>
-							<td>{{ report.user_agent }}</td>
-							<td>{{ report.mail }}</td>
-							<td class='notCenterTd'>{{ report.report_text|linebreaks }}</td>
-						</tr>
-					{% endfor %}
-				</table>
-			</div>
-
-		</div>
-	</div>
+<div class="TableViewReports">
+	<table>
+		<tr>
+			<td style="border: 3px solid #3182ff;">Номер телефона</td>
+			<td style="border: 3px solid #3182ff;">Устройство</td>
+			<td style="border: 3px solid #3182ff;">Почта</td>
+			<td style="border: 3px solid #3182ff;">Текст</td>
+		</tr>
+		{% for report in order.reports.all %}
+		<tr>
+			<td>{{ report.phone_number }}</td>
+			<td>{{ report.user_agent }}</td>
+			<td>{{ report.mail }}</td>
+			<td class='notCenterTd'>{{ report.report_text|linebreaks }}</td>
+		</tr>
+		{% endfor %}
+	</table>
 </div>
 <script src="{% static 'js/order.js' %}"></script>
 {% endblock %}

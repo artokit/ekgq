@@ -10,7 +10,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 
 class FileManager:
     def __init__(self, file_name):
-        self.lines = open(os.path.join(os.path.dirname(__file__), file_name)).readlines()
+        with open(os.path.join(os.path.dirname(__file__), file_name)) as f:
+            self.lines = f.readlines()
 
     def get_line(self):
         line = random.choice(self.lines).strip()

@@ -1,9 +1,10 @@
+import os
 from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import FormView, DetailView
-from .forms import ReportSiteForm
-from .models import Order, Report
+from django.views.generic import FormView, DetailView, TemplateView, ListView
+from .forms import ReportSiteForm, TextAddForm
+from .models import Order, Report, Text
 from .consumers import send_browser_report
 import asyncio
 from browser_reports.start import ReportBrowser
@@ -36,6 +37,28 @@ class OrderView(DetailView):
 
     def get_object(self, queryset=None):
         return self.model.objects.get(uuid=self.kwargs['uuid'])
+
+
+class TextReportView(ListView):
+    template_name = 'report_site_tg/texts.html'
+    model = Text
+    context_object_name = 'texts'
+
+
+class EditText(FormView):
+    template_name = 'report_site_tg/edit_text.html'
+    form_class = TextAddForm
+
+    def post(self, request, *args, **kwargs):
+        text = request.POST.get('new_text')
+        text = text.replace('\r\n', '\n').replace('\n\n', '\n')
+        arr = text.split('\n')
+        for i in arr:
+            if i.strip():
+                t = Text(content=i.strip())
+                t.save()
+
+        return redirect('/site_reports/texts/')
 
 
 @csrf_exempt

@@ -18,3 +18,10 @@ class Order(models.Model):
 
     def get_absolute_url(self):
         return f'/site_reports/order/{self.uuid}/'
+
+
+class Text(models.Model):
+    content = models.TextField()
+
+    def __str__(self):
+        return self.content
