@@ -22,7 +22,7 @@ class Index(FormView):
             order = form.save()
             th = threading.Thread(
                 target=ReportBrowser,
-                args=(order.count_threads, order.count_reports, order.url_report, order.uuid)
+                args=(order.count_threads, order.count_reports, order.url_report, order.uuid, order.proxy)
             )
             th.start()
             return redirect(f'/site_reports/order/{order.uuid}/')

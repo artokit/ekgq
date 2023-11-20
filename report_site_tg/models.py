@@ -15,6 +15,7 @@ class Order(models.Model):
     url_report = models.CharField(max_length=150)
     count_threads = models.IntegerField()
     reports = models.ManyToManyField(Report)
+    proxy = models.CharField(max_length=200, null=True)
 
     def get_absolute_url(self):
         return f'/site_reports/order/{self.uuid}/'

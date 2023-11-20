@@ -1,11 +1,11 @@
 import os
-from undetected_chromedriver import Chrome
-from selenium.webdriver import ChromeOptions
+# from undetected_chromedriver import Chrome
+# from selenium.webdriver import ChromeOptions
 import shutil
 import random
 import fake_useragent
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service as ChromeService
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.service import Service as ChromeService
 
 
 class FileManager:

@@ -6,10 +6,11 @@ import random
 
 
 class ReportBrowser:
-    def __init__(self, thread_count, count_numbers, who_report, uuid_order):
+    def __init__(self, thread_count, count_numbers, who_report, uuid_order, proxy):
         self.thread_count = thread_count
         self.count_numbers = count_numbers
         self.who_report = who_report
+        self.proxy = proxy
 
         pm = FileManager('proxies.txt')
         em = FileManager('emails.txt')
@@ -20,7 +21,7 @@ class ReportBrowser:
             threads = []
             for number in current_numbers:
                 email = em.get_line()
-                t = Browser(number, self.get_text_report_random(), email, pm.get_line(), self.who_report, uuid_order)
+                t = Browser(number, self.get_text_report_random(), email, self.proxy, self.who_report, uuid_order)
                 t.start()
                 threads.append(t)
             self.wait_threads(threads)
